@@ -2,9 +2,9 @@
   "name": "slack-message-preview",
   "version": "1.0.0",
   "description": "React Slack Message Preview",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "webpack --config webpack/config.js",
+    "build": "webpack -p",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -34,10 +34,12 @@
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.14"
   }
 }

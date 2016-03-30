@@ -1,5 +1,7 @@
 # Slack Message Preview
 
+Allows previewing Slack messages.
+
 install
 -------
 
@@ -20,3 +22,5 @@ const slackMessage = {
 
 ReactDOM.render(<SlackMessagePreview message={slackMessage} />, container);
 ```
+----
+Slack Message Preview is not created by, affiliated with, or supported by Slack Technologies, Inc.

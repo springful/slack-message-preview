@@ -1,0 +1,153 @@
+.slackMessagePreview {
+  display: flex;
+  font-family: "Slack-Lato", sans-serif;
+
+  .messageGutter {
+    width: 72px;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-top: 3px;
+    text-align: right;
+
+    .botIcon {
+      width: 36px;
+      height: 36px;
+      border-radius: 100%;
+    }
+  }
+
+  .messageContent {
+    flex: 1;
+
+    .header {
+      .botName {
+        font-weight: 900;
+        color: #3d3c40;
+        font-size: 15px;
+      }
+
+      .botLabel {
+        color: #a3a3a3;
+        font-weight: 500;
+        font-size: 12px;
+        margin: 0 2.4px;
+        padding: 0 1.6px;
+        background: #f7f7f7;
+      }
+
+      .timestamp {
+        color: #9e9ea6;
+        font-size: 12px;
+        cursor: pointer;
+        margin-left: 7px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .body {
+      color: #2c2d30;
+      font-size: 15px;
+      line-height: 22px;
+      margin-top: 2px;
+      padding-right: 20px;
+
+      .link {
+        color: #3aa3e3;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .attachment {
+        .attachmentContainer {
+          display: flex;
+          padding: 3px 0 12px 0;
+
+          .attachmentBar {
+            width: 4px;
+            align-self: stretch;
+            background: #e3e4e6;
+            border-radius: 8px;
+            margin-right: 12px;
+          }
+
+          .attachmentBody {
+            flex: 1;
+
+            .title {
+              font-weight: 700;
+              font-size: 16px;
+            }
+
+            a {
+              color: #3aa3e3;
+            }
+
+            .author {
+              display: flex;
+              align-items: center;
+              color: #555459;
+              font-weight: 900;
+
+              .link {
+                color: #555459;
+
+                &:hover {
+                  color: #3aa3e3;
+                }
+              }
+
+              .authorIcon {
+                margin-right: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                  width: 16px;
+                  height: 16px;
+                }
+              }
+            }
+
+            .attachmentImage {
+              max-width: 400px;
+              max-height: 500px;
+              border-radius: 3px;
+              box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+              margin: 6px 0 4px 0;
+            }
+
+            .attachmentThumb {
+              max-width: 75px;
+              max-height: 75px;
+              border-radius: 8px;
+              margin-left: 16px;
+              margin-top: 4px;
+              float: right;
+            }
+
+            .fieldChunkContainer {
+              display: flex;
+
+              .field {
+                flex: 1;
+                font-size: 15px;
+                margin-bottom: 5px;
+
+                .title {
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

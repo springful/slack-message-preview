@@ -2,9 +2,10 @@
   "name": "slack-message-preview",
   "version": "1.0.0",
   "description": "React Slack Message Preview",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "NODE_ENV=prod webpack --config webpack/production.config.js"
+    "build": "webpack --config webpack/config.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

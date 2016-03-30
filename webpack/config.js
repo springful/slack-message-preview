@@ -3,26 +3,27 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: [
-    "./index.js"
-  ],
-  resolve: {
-    root: path.resolve(__dirname, "../"),
-    extensions: ["", ".js"],
-    modulesDirectories: ["node_modules", "src"]
-  },
+  context: path.join(__dirname),
+  entry: "../index.js",
+
   output: {
-    path: path.join(__dirname, "generated"),
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
-    library: ["SlackMessagePreview", "[name]"]
+    path: path.join(__dirname, "../dist/"),
+    filename: "index.js",
+    library: "slack-message-preview",
+    libraryTarget: "umd"
   },
+
+  externals: {
+    "react": "react",
+    "react-dom": "react-dom"
+  },
+
   plugins: [
     new webpack.DefinePlugin({
       // To force React into knowing this is a production build.
       "process.env": { NODE_ENV: JSON.stringify("production") }
     }),
-    new ExtractTextPlugin("[name]-[chunkhash].css", { allChunks: true }),
+    new ExtractTextPlugin("[name].css", { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -30,7 +31,7 @@ module.exports = {
       output: {
         comments: false
       },
-      compress: { unused: true, dead_code: true }
+      compress: { unused: true, dead_code: true, warnings: false }
     })
   ],
   module: {

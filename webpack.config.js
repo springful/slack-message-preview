@@ -23,7 +23,7 @@ module.exports = {
       // To force React into knowing this is a production build.
       "process.env": { NODE_ENV: JSON.stringify("production") }
     }),
-    // new ExtractTextPlugin("[name].css", { allChunks: true }),
+    new ExtractTextPlugin("[name].css", { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -47,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: "style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader?browsers=last 2 version!sass?outputStyle=expanded"
+        loader: "style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss?browsers=last 2 version!sass?outputStyle=expanded"
       },
       {
         test: /\.woff$/,

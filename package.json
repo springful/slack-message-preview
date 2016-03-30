@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack -p",
+    "postinstall": "npm run build",
     "prepublish": "npm run build"
   },
   "repository": {

@@ -4,10 +4,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: path.join(__dirname),
-  entry: "../index.js",
+  entry: "./src/SlackMessagePreview.js",
 
   output: {
-    path: path.join(__dirname, "../dist/"),
+    path: path.join(__dirname, "./dist/"),
     filename: "index.js",
     library: "slack-message-preview",
     libraryTarget: "umd"
@@ -23,7 +23,7 @@ module.exports = {
       // To force React into knowing this is a production build.
       "process.env": { NODE_ENV: JSON.stringify("production") }
     }),
-    new ExtractTextPlugin("[name].css", { allChunks: true }),
+    // new ExtractTextPlugin("[name].css", { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -47,7 +47,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!postcss-loader?browsers=last 2 version!sass?outputStyle=expanded&sourceMap")
+        loader: "style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader?browsers=last 2 version!sass?outputStyle=expanded"
+      },
+      {
+        test: /\.woff$/,
+        loader: "url-loader"
       }
     ]
   }

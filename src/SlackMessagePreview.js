@@ -3,6 +3,7 @@ import classnames from "classnames";
 import _ from "lodash";
 import linkifyStr from "linkifyjs/string";
 
+import "./fonts.scss";
 import styles from "./SlackMessagePreview.scss";
 
 class SlackMessagePreview extends Component {

@@ -136,7 +136,7 @@ class SlackMessagePreview extends Component {
 
   chunkFields(fields) {
     const chunks = [];
-    for (let i = 0; i < fields.size;) {
+    for (let i = 0; i < fields.length;) {
       const field = fields[i];
       const nextField = fields[i + 1];
       if (field.short && nextField && nextField.short) {

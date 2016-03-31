@@ -1,3 +1,26 @@
+@font-face {
+  font-family: "Lato";
+  src: url(./Lato-Black.woff);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(./Lato-Bold.woff);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(./Lato-Medium.woff);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(./Lato-Regular.woff);
+}
+
 .slackMessagePreview {
   display: flex;
   font-family: "Lato";

@@ -22,5 +22,7 @@ const slackMessage = {
 
 ReactDOM.render(<SlackMessagePreview message={slackMessage} />, container);
 ```
-***
+
+You must also include this component's styles available at `node_modules/slack-message-preview/dist/index.css`.
+
 Slack Message Preview is not created by, affiliated with, or supported by Slack Technologies, Inc.

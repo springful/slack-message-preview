@@ -1,11 +1,19 @@
 import React, { Component, PropTypes } from "react";
 import classnames from "classnames";
 import _ from "lodash";
-import linkifyStr from "linkifyjs/string";
+import Remarkable from "remarkable";
 
 import styles from "./SlackMessagePreview.scss";
 
 class SlackMessagePreview extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.md = new Remarkable({
+      breaks: true,
+      linkify: true,
+    });
+  }
+
   render() {
     if (!this.props.message) {
       return <div />;
@@ -36,7 +44,7 @@ class SlackMessagePreview extends Component {
     }
 
     return (
-      <div className={styles.message} dangerouslySetInnerHTML={ { __html: linkifyStr(this.props.message.text || "") } } />
+      <div className={styles.message} dangerouslySetInnerHTML={ { __html: this.md.render(this.props.message.text || "") } } />
     );
   }
 
@@ -45,9 +53,10 @@ class SlackMessagePreview extends Component {
       return;
     }
     return this.props.message.attachments.map((attachment, index) => {
+      console.log(attachment);
       return (
         <div key={index} className={styles.attachment}>
-          <div className={styles.pretext}  dangerouslySetInnerHTML={ { __html: linkifyStr(attachment.pretext || "") } } />
+          <div className={styles.pretext}  dangerouslySetInnerHTML={ { __html: this.md.render(attachment.pretext || "") } } />
           <div className={styles.attachmentContainer}>
             <div className={styles.attachmentBar} style={this.getAttachmentBarStyle(attachment)}/>
             <div className={styles.attachmentBody}>
@@ -59,7 +68,7 @@ class SlackMessagePreview extends Component {
               <div className={styles.title}>
                 {this.renderAttachmentTitle(attachment)}
               </div>
-              <div className={styles.text} dangerouslySetInnerHTML={ { __html: linkifyStr(attachment.text || "") } } />
+              <div className={styles.text} dangerouslySetInnerHTML={ { __html: this.md.render(attachment.text || "") } } />
               {this.renderFields(attachment)}
               {this.renderAttachmentImage(attachment)}
             </div>

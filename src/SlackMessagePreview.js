@@ -21,12 +21,12 @@ class SlackMessagePreview extends Component {
     return (
       <div className={classnames(this.props.className, styles.slackMessagePreview)}>
         <div className={styles.messageGutter}>
-          <img className={styles.botIcon} src="https://i0.wp.com/slack-assets2.s3-us-west-2.amazonaws.com/8390/img/avatars/ava_0002-48.png?ssl=1" />
+          <img className={styles.botIcon} src={this.props.user.profile.image_48} />
         </div>
         <div className={styles.messageContent}>
           <div className={styles.header}>
-            <span className={styles.botName}> Your App </span>
-            <span className={styles.botLabel}>BOT</span>
+            <span className={styles.botName}> {this.props.user.real_name} </span>
+            {this.renderBotLabel(styles)}
             <span className={styles.timestamp}>4:00 PM</span>
           </div>
           <div className={styles.body}>
@@ -36,6 +36,13 @@ class SlackMessagePreview extends Component {
         </div>
       </div>
     );
+  }
+  
+  renderBotLabel(styles) {
+    if (!this.props.user.is_bot) {
+      return;
+    }
+    return <span className={styles.botLabel}>BOT</span>;
   }
 
   renderMessage() {
@@ -193,7 +200,24 @@ class SlackMessagePreview extends Component {
 
 SlackMessagePreview.propTypes = {
   message: PropTypes.object,
-  className: PropTypes.string
-}
+  className: PropTypes.string,
+  user: PropTypes.shape({
+    real_name: PropTypes.string,
+    profile: PropTypes.shape({
+      image_48: PropTypes.string,
+    }),
+    is_bot: PropTypes.bool,
+  })
+};
+
+SlackMessagePreview.defaultProps = {
+  user: {
+    real_name: "Your App",
+    profile: {
+      image_48: "https://i0.wp.com/slack-assets2.s3-us-west-2.amazonaws.com/8390/img/avatars/ava_0002-48.png?ssl=1",
+    },
+    is_bot: false,
+  }
+};
 
 export default SlackMessagePreview;

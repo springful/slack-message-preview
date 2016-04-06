@@ -216,7 +216,7 @@ SlackMessagePreview.defaultProps = {
     profile: {
       image_48: "https://i0.wp.com/slack-assets2.s3-us-west-2.amazonaws.com/8390/img/avatars/ava_0002-48.png?ssl=1",
     },
-    is_bot: false,
+    is_bot: true,
   }
 };
 

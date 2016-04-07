@@ -37,7 +37,7 @@ class SlackMessagePreview extends Component {
       </div>
     );
   }
-  
+
   renderBotLabel(styles) {
     if (!this.props.user.is_bot) {
       return;
@@ -60,7 +60,6 @@ class SlackMessagePreview extends Component {
       return;
     }
     return this.props.message.attachments.map((attachment, index) => {
-      console.log(attachment);
       return (
         <div key={index} className={styles.attachment}>
           <div className={styles.pretext}  dangerouslySetInnerHTML={ { __html: this.md.render(attachment.pretext || "") } } />

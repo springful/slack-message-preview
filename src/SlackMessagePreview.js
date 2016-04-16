@@ -173,7 +173,12 @@ class SlackMessagePreview extends Component {
             {field.title}
           </div>
           <div className={styles.value}>
-            {field.value}
+            {field.value.split("\n").map(item => (
+              <span>
+                {item}
+                <br/>
+              </span>
+            ))}
           </div>
         </div>
       );

@@ -1,6 +1,6 @@
 {
   "name": "slack-message-preview",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React Slack Message Preview",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash": "^4.6.1",
-    "react": "^0.14.8",
+    "react": "^15.0.1",
     "remarkable": "^1.6.2"
   },
   "devDependencies": {
